@@ -140,11 +140,5 @@ npy.random.seed(0)
 
 
 
-
-class layer_Dense:
-    def __init__(self):
-        pass
-    def forward(self):
-        pass 
     
 
