@@ -77,20 +77,15 @@ print(outputs)
 
 #convert single sample of inputs to a batch
 
-
-#each 1d array is within a given neuron
-#cant fit all samples at once because overfitting
-#insample data would be really good but outsample data would suck 
 inputs = npy.array([[1,2,3,2.5],
           [2,5,-1,2.0],
           [-1.5,2.7,3.3,-0.8]])
-
 
 weights = npy.array([[0.2,0.8,-0.5,1], 
            [0.5,-0.91,0.26,-0.5], 
            [-0.26,-0.27,0.17,0.87]])
 
-biases = npy.array([2,3,0.5]) #biases # = # of outputs (bias per each output neuron)
+biases = npy.array([2,3,0.5])
 
 
 #weights and biases of the 2nd layer
@@ -103,14 +98,10 @@ biases2 = npy.array([-1,2,-0.5])
 
 layer1_output =npy.dot(inputs, weights.T)+biases  #T is transpose  # bias is added to each row 
 #outputs becomes matrix of rows row size = weights row size & column size = transposed inputs size
-#4 input neurons, 3 output neurons
 
+layer2_output=npy.dot(layer1_output, weights2.T)+biases2
 
-layer2_output=npy.dot(layer1_output, weights2.T)+biases2 # biases is a vector
-#3 inputs 3 outputs
-
-print('scalar values (inputs for layer 2) for layer 1 :\n',npy.array(layer1_output).round(2), '\n')
-print('scalar values (outputs)for layer 2:\n',npy.array(layer2_output).round(2), '\n')
+print(npy.array(layer2_output).round(2))
 
 #---------------------
 
