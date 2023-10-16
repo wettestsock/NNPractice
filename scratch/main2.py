@@ -1,8 +1,10 @@
 import numpy as npy
+import nnfs
 from numpy import array
 # RECTIFIED LINEAR ACTIVATION FUNCTION
 #best to use at least 2 hidden layers
 
+nnfs.init() #forces the data type, just to replicate datatype
 
 inputs = [0,2,-1,3.3,-2.7,1.1,2.2,-100]
 output = []
