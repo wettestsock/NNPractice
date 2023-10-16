@@ -1,10 +1,17 @@
 import numpy as npy
-import nnfs
+import nnfs #forces the data type, just to replicate datatype
+from nnfs.datasets import spiral_data
 from numpy import array
 # RECTIFIED LINEAR ACTIVATION FUNCTION
 #best to use at least 2 hidden layers
+nnfs.init() 
 
-nnfs.init() #forces the data type, just to replicate datatype
+X = npy.array([[1,2,3,2.5],
+          [2,5,-1,2.0],
+          [-1.5,2.7,3.3,-0.8]])
+
+X, y = spiral_data(100,3) #100 features of 3 classes
+print(X,y)
 
 inputs = [0,2,-1,3.3,-2.7,1.1,2.2,-100]
 output = []
@@ -22,12 +29,9 @@ for i in inputs:
 
 print(output)
 
-X = npy.array([[1,2,3,2.5],
-          [2,5,-1,2.0],
-          [-1.5,2.7,3.3,-0.8]])
 
 class layer_dense:
-    def __init__(self, n_inputs, n_neurons): #inputs: neuron input, neurons: neuron output
+    def __init__(self, n_inputs, n_neurons): #inputs: size fo the input data (# of features per sample), neurons: neuron output
         self.weights = 0.1*npy.random.randn(n_inputs,n_neurons)
         self.biases = npy.zeros((1,n_neurons))
     def forward(self,inputs): #input: inputs for each output neuron
@@ -37,11 +41,12 @@ class activation_ReLU:
     def forward(self,inputs):
         self.output = npy.maximum(0,inputs)
 
-layer1 = layer_dense(4,5)
-layer2 = layer_dense(5,2)
+layer1 = layer_dense(2,5)
+activation1= activation_ReLU()
 
 layer1.forward(X) 
-layer2.forward(layer1.output)
-print(layer2.output)
+activation1.forward(layer1.output)
+print(activation1.output) # if theres zeros: introduce bias
+
 
 #TODO: pip install nnfs on pc 
