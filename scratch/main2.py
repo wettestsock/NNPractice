@@ -50,3 +50,11 @@ print(activation1.output) # if theres zeros: introduce bias
 
 
 #TODO: pip install nnfs on pc 
+
+
+
+'''
+SOFTMAX ACTIVATION FUNCTION
+only used for output layer
+
+'''
