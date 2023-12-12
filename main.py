@@ -114,26 +114,30 @@ class layer_dense:
         self.output = npy.dot(inputs, self.weights)+ self.biases
 
 
+'''
+RECTIFIED LINEAR UNIT ACTIVATION FUNCTION
+'''
+class ReLU:
+    def forward(self, inputs:list):
+        self.output = npy.maximum(0,inputs)
+
+
 #input # is important, has to be like previous, but neuron # doesnt
 layer1 = layer_dense(4,5) 
+activation1 = ReLU()
+
 layer2 = layer_dense(5,2)
 
 
 layer1.forward(X)
+activation1.forward(layer1.output)
+print(activation1.output)
+
 #print(layer1.output)
 layer2.forward(layer1.output)
-print(layer2.output)
+#print(layer2.output)
 
 
 
-'''
-RECTIFIED LINEAR UNIT ACTIVATION FUNCTION
 
-
-
-'''
-
-class ReLU:
-    def forward(self, inputs:list):
-        self.output = npy.maximum(0,inputs)
 
