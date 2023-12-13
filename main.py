@@ -32,24 +32,24 @@ biases = [2,3,0.5]
 # every neuron needs to add the sum of all (inputs * weights) + biases
 # basically linear regression
 
-#print(sum([i*w for i, w in zip(inputs,weights)]) + biases)
+#NOTE: print(sum([i*w for i, w in zip(inputs,weights)]) + biases)
 output = []
 
 #for every weight and biases
 for we, b in zip(weights,biases):
     output.append(sum([i*w for i, w in zip(inputs,we)]) + b)
 
-#print(output)
+#NOTE: print(output)
 
 #scary long print
-#print([(sum([i*w for i, w in zip(inputs,we)]) + b) for we, b in zip(weights,biases)])
+#NOTE: print([(sum([i*w for i, w in zip(inputs,we)]) + b) for we, b in zip(weights,biases)])
 
 
 
 #dot product for a single layer
 out = npy.dot(weights[0], inputs) + biases[0]
 
-#print(out)
+#NOTE: print(out)
 
 '''
 NOTE: BATCHES
@@ -78,7 +78,7 @@ biases = [2,3,0.5]
 
 out = npy.dot(inputs, arr(weights).T) + biases
 
-#print(out)
+#NOTE: print(out)
 
 
 '''
@@ -133,9 +133,9 @@ layer1.forward(X)
 activation1.forward(layer1.output)
 print(activation1.output)
 
-#print(layer1.output)
+#NOTE: print(layer1.output)
 layer2.forward(layer1.output)
-#print(layer2.output)
+#NOTE: print(layer2.output)
 
 
 
