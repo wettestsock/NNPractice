@@ -39,6 +39,11 @@ norm_values  = exp_values/npy.sum(exp_values)
 
 layer_outputs = [[4.8,1.21,2.385],
                  [8.9,-1.81,0.2],
-                 [1.41,1.051,0.026]
-                 ]
+                 [1.41,1.051,0.026]]
 
+exp_values = npy.exp(layer_outputs)
+#print(exp_values)
+
+print(npy.sum(layer_outputs, axis=1)) #axis: direction to add
+#axis default none (adds all)
+# axis = 0 vertically 1 horizontally
