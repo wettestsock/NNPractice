@@ -1,6 +1,9 @@
 import numpy as npy
 from numpy import array as arr
-import nnfs 
+import nnfs
+import nnfs.datasets.spiral as spiral
+
+nnfs.init()
 
 '''
 DO EVERYTHING FROM SCRATCH THEN USE PYTHON
@@ -47,7 +50,7 @@ for we, b in zip(weights,biases):
 
 
 #dot product for a single layer
-out = npy.dot(weights[0], inputs) + biases[0]
+out = npy.dot(arr(weights[0]), arr(inputs)) + biases[0]
 
 #NOTE: print(out)
 
@@ -76,7 +79,7 @@ weights = [[0.2,0.8,-0.5, 1],
 
 biases = [2,3,0.5]
 
-out = npy.dot(inputs, arr(weights).T) + biases
+out = npy.dot(arr(inputs), arr(weights).T) + biases
 
 #NOTE: print(out)
 
@@ -99,6 +102,16 @@ X = [[1,2,3,2.5],
     [-1.5,2.7,3.3,-0.8]]
 
 
+
+
+'''
+CLASSES
+
+
+
+
+'''
+
 class layer_dense:
     def __init__(self, n_inputs, n_neurons) -> None:
         #inputs (batch size) and neurons (# of neurons)
@@ -114,13 +127,23 @@ class layer_dense:
         self.output = npy.dot(inputs, self.weights)+ self.biases
 
 
-'''
-RECTIFIED LINEAR UNIT ACTIVATION FUNCTION
-'''
+# RELU 
 class ReLU:
     def forward(self, inputs:list):
         self.output = npy.maximum(0,inputs)
 
+
+class softmax:
+    def forward(self, inputs):
+        #exponentiate
+        exp_values = npy.exp(inputs- npy.max(inputs, axis = 1, keepdims=True))
+        #keeps dimensions of the inputs 
+        #max to prevent overflow
+
+        #normalize
+        probabilities = exp_values/npy.sum(exp_values, axis=1, keepdims=True)
+
+        self.output = probabilities
 
 #input # is important, has to be like previous, but neuron # doesnt
 layer1 = layer_dense(4,5) 
@@ -129,13 +152,27 @@ activation1 = ReLU()
 layer2 = layer_dense(5,2)
 
 
-layer1.forward(X)
-activation1.forward(layer1.output)
-print(activation1.output)
+#course materials
+X, y = spiral.create_data(samples = 100, classes=3)
 
-#NOTE: print(layer1.output)
-layer2.forward(layer1.output)
-#NOTE: print(layer2.output)
+#input 2 (x and y coordinates)
+dense1 = layer_dense(2,3)
+activation1 = ReLU()
+
+
+dense2 = layer_dense(3, 3)
+activation2 = softmax()
+
+
+dense1.forward(X)
+activation1.forward(dense1.output)
+
+dense2.forward(activation1.output)
+activation2.forward(dense2.output)
+
+
+#when model is initialized, the probabilities are random
+print(activation2.output[:5])
 
 
 

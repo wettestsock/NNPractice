@@ -53,7 +53,7 @@ exp_values = npy.exp(layer_outputs)
 
 norm_values = exp_values / npy.sum(exp_values, axis = 1, keepdims=True)
 
-print(norm_values)
+#NOTE: print(norm_values)
 
 '''
 SOFTMAX ACTIVATION FUNCTION EASY TO OVERFLOW,
@@ -67,3 +67,4 @@ solution: substract biggest number from each value
 biggest always becomes 0 
 
 '''
+
