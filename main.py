@@ -242,6 +242,10 @@ print('Loss:', loss)
 
 
 
+#rewritten functions
+
+
+
 
 
 '''

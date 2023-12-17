@@ -41,6 +41,8 @@ layer_outputs = [[4.8,1.21,2.385],
                  [8.9,-1.81,0.2],
                  [1.41,1.051,0.026]]
 
+
+#exponential values
 exp_values = npy.exp(layer_outputs)
 #NOTE: print(exp_values)
 
