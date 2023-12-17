@@ -2,6 +2,7 @@ import numpy as npy
 from numpy import array as arr
 import nnfs
 import nnfs.datasets.spiral as spiral
+import math
 
 nnfs.init()
 
@@ -16,6 +17,8 @@ NOTE: can only have 1 print statement (for example purposes)
 weight is a slope
 biases is the y intercept 
 basically multiple linear regression
+
+python coding/NNPractice/main.py
 
 '''
 
@@ -145,6 +148,64 @@ class softmax:
 
         self.output = probabilities
 
+
+class loss:
+    def calculate(self, output, target):
+        #loss for each sample 
+        sample_losses = self.forward(output,target) 
+        
+        #average loss
+        data_loss = npy.mean(sample_losses)
+
+        return data_loss
+
+#derived class
+class loss_categorical(loss):
+    def forward(self, y_pred, y_true):
+        #sample length
+        samples = len(y_pred) 
+
+        #clip all values close to 0 (1e-7 to 1-1e-7)
+        y_pred_clipped = npy.clip(y_pred, 1e-7, 1-1e-7)
+
+        '''
+        TARGETS ARE EITHER PASSED AS:
+        both are used
+
+        scalar values:
+        [1,0]
+
+        or one-hot encoded:
+        [[0,1],[1,0]]
+
+        ex 2: 
+        scalar: [0,2,1]
+        one-hot: [[1,0,0],[0,0,1],[0,1,0]]
+
+        '''
+        if len(y_true.shape) == 1: #true scalar values form
+            correct_confidences = y_pred_clipped[range(samples), y_true] #1st, 2nd dimensions
+
+            '''
+            range(samples): reference all the samples within the batch (samples is length of predicted)
+            y_true: grabs the values in the indexes of the scalar values
+
+            '''
+        elif len(y_true.shape) == 2: #one hot encoded values
+            correct_confidences = npy.sum(y_pred_clipped*y_true, axis =1)
+
+
+            '''
+            both are 2d arrays
+            multiplying is easier
+
+            axis=1: horizontal
+            '''
+        
+        #loss
+        neg_log_prob = -npy.log(correct_confidences)
+        return neg_log_prob #comes back to sample losses
+
 #input # is important, has to be like previous, but neuron # doesnt
 layer1 = layer_dense(4,5) 
 activation1 = ReLU()
@@ -170,11 +231,89 @@ activation1.forward(dense1.output)
 dense2.forward(activation1.output)
 activation2.forward(dense2.output)
 
-
 #when model is initialized, the probabilities are random
-print(activation2.output[:5])
+#NOTE: print(activation2.output[:5])
+
+
+loss_fn = loss_categorical()
+loss = loss_fn.calculate(activation2.output, y)
+
+print('Loss:', loss)
 
 
 
+
+
+'''
+LOGS:
+
+e**x = b , find x from b
+
+log(b) = x 
+
+e raised to what = b 
+
+'''
+
+
+'''
+CATEGORICAL CROSS-ENTROPY 
+
+loss 
+is this loss?
+
+one-hot encoding: 
+classes: amount of elements, all 0 
+labels: index of a 1 
+
+loss = -log(observed value * expected value)
+'''
+#ex
+softmax_output = [0.7,0.1,0.2] #output for 1 node
+target_output = [1,0,0] #target output for 
+
+# 0 is the label
+#loss = -(math.log(softmax_output[0]*target_output[0]))
+
+#label: correct index
+def loss(obs:list, label:int = 0)->float:
+    return -(math.log(obs[label]))
+
+#NOTE: print(loss(softmax_output))
+
+'''
+LOSS IMPLEMENTATION
+'''
+
+softmax_output = arr([[0.7,0.1,0.2],
+                      [0.1,0.5,0.4],
+                      [0.02,0.9,0.08]])
+
+class_targets = [0,1,1]
+
+#this has a problem
+loss = -npy.log(
+    softmax_output[range((len(softmax_output))), class_targets]
+    ) #1st dimension, 2nd
+
+average_loss = npy.mean(loss)
+
+
+#NOTE: print(average_loss)
+
+#cant log 0, it's infinite
+#solution: clip all zeros to insignificant number
+
+'''
+OPTIMIZATION AND DERIVATIVES
+
+how to adjust weights and biases to reduce loss?
+cant be random, especially for non linear datasets
+
+certain weights and biases weight more than others
+calculus helps
+
+
+'''
 
 
