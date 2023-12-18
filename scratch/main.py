@@ -316,17 +316,37 @@ average_loss = npy.mean(loss)
 '''
 OPTIMIZATION AND DERIVATIVES
 
+
+
 how to adjust weights and biases to reduce loss?
 cant be random, especially for non linear datasets
 
 certain weights and biases weight more than others
 calculus helps
 
+millions or more parameters required
+
+change the delta for each weight and calculate the loss
+do this PER SAMPLE
+
 
 linear function:
 
 rise/run
 or delta y/ delta x
+
+nonlinear function:
+the slope varies at each x
+calculus proposes the slope of tangent line
+can only be done on a continuous curve
+
+cant get exact slope so have to estimate
+secant slope can estimate the slope
+
+y = mx + b
+b = y-mx
+x = (y-b)/m
+
 
 
 '''
