@@ -161,9 +161,21 @@ class loss:
 
 #derived class
 class loss_categorical(loss):
+
+    '''
+    cross entropy or log loss
+    calculate how wrong a NN is
+
+    loss = -sum((exp)log(obs))
+
+    note: cant have 0 so cutoff all zeros to almost 0 
+    '''
+
     def forward(self, y_pred, y_true):
         #sample length
         samples = len(y_pred) 
+
+        #CANT LOG BY 0 , HAVE TO CLIP THE VALUES TO CLOSE TO 0 BUT NOT 0
 
         #clip all values close to 0 (1e-7 to 1-1e-7)
         y_pred_clipped = npy.clip(y_pred, 1e-7, 1-1e-7)
@@ -241,13 +253,6 @@ loss = loss_fn.calculate(activation2.output, y)
 print('Loss:', loss)
 
 
-
-#rewritten functions
-
-
-
-
-
 '''
 LOGS:
 
@@ -316,6 +321,12 @@ cant be random, especially for non linear datasets
 
 certain weights and biases weight more than others
 calculus helps
+
+
+linear function:
+
+rise/run
+or delta y/ delta x
 
 
 '''
