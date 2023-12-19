@@ -17,13 +17,6 @@ anything and everything can be converted into numbers
 doesnt require machine learning, do that."
  - Rule 1 of google's ML handbook
 
-whats it good for then?
-
-
-
-
-
-
 
 
 '''
