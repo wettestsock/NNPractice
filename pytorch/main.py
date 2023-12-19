@@ -12,6 +12,8 @@ hello and welcome to super pytorch super
 
 use gpu !!! a lot more!! 
 
+python coding/NNPractice/pytorch/main.py
+
 '''
 
 
@@ -85,4 +87,47 @@ random_image_size_tensor = torch.rand(size=(224,224,3)) #height, width, color ch
 
 #tensor of all zeros in size 3,4  
 zeros = torch.zeros(3,4)
-print(zeros)
+#print(zeros)
+
+#all ones
+ones = torch.ones(5,34)
+#print(ones)
+
+'''
+MAKE A RANGE OF TENSORS
+'''
+
+range = torch.arange(0,10) # 0 to 10 (exclusive) so 0 <= x < 10
+#print(range)
+
+#zeros liek 
+ten_zeros = torch.zeros_like(range)
+
+#print(ten_zeros)
+
+'''
+IMPORTANT PARAMETERS
+
+TENSORS ARE FLOAT 32 DATA TYPE BY DEFAULT
+dtype = data type (from torch)
+
+device <- where to store the tensor
+device has to be the same to do manipulation
+
+requires_grad <- calculate gradients
+
+
+dtype =    # data type
+device =   # where its stored (cpu gpu)
+required_grad  # whether or not to track gradients
+'''
+
+float_32_tensor = torch.tensor([3.0,6.0,9.0],
+                               dtype=torch.float16,
+                               device='cpu',
+                               requires_grad=False)
+
+#casting
+float_16_tensor = float_32_tensor.type(torch.half) 
+
+#print(float_16_tensor)
