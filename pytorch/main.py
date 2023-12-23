@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as npy 
 import matplotlib.pyplot as plt 
 import torch 
+import torch.cuda
 
 
 # IT WORKS
@@ -189,8 +190,7 @@ transpose method
 #tensor_mult = torch.matmul(torch.tensor([1,2,3]), torch.tensor([4,4,3]))
 
 # mm - alias for matmul
-tensor_mult = torch.mm(torch.tensor([1,2,3]), torch.tensor([4,4,3]))
-
+tensor_mult = torch.mm(torch.tensor([[1,2.0,3],[3,4,2]]), torch.tensor([[4,4.0,3],[3,4,2]]).T)
 #symbol for matrix multiplication
 #print(torch.tensor([1,2,3]) @ torch.tensor([4,4,3]))
 
@@ -207,3 +207,48 @@ min/max/mean/sum/etc
 
 # index of the min/max 
 #print(tensor_mult.argmin(), tensor_mult.argmax())
+
+
+'''
+TENSOR SQUEEZE AND UNSQUEEZE 
+
+squeeze: removes single dimensions
+unsuqeeze: adds single dimension to a given dimension
+
+
+'''
+
+
+print(tensor_mult.squeeze().shape)
+print(tensor_mult.unsqueeze(0).shape)
+
+
+
+'''
+REPRODUCIBILITY
+(trying to take random out of random)
+
+start with random numbers -> tensor operations -> 
+-> update random numbers to make it fit data more
+
+'''
+
+#have to set the seed for each block of code
+torch.manual_seed(42)
+manual_1 = torch.rand(3,4)
+
+
+torch.manual_seed(42)
+manual_2 = torch.rand(3,4)
+
+
+#print(manual_1 == manual_2)
+
+
+'''
+runnign pytorch on GPUS
+TODO: do this on my pc lmao
+'''
+
+# EASY SOLUTION ON PC
+#print(torch.cuda.is_available())
