@@ -3,6 +3,7 @@ import numpy as npy
 import matplotlib.pyplot as plt 
 import torch 
 import torch.cuda
+from torch import nn  #neural network functios
 
 
 # IT WORKS
@@ -253,6 +254,8 @@ nvidia #1 leader on cuda cores
 
 gpus are a lot better than cpus at numerical calculations
 
+numpy doesnt support gpus 
+tensors do
 '''
 
 # EASY SOLUTION ON PC
@@ -263,3 +266,22 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 tensor_on_cpu_for_now = torch.tensor([3,4,3])
 tensor_on_cpu_for_now.to(device) # transfer to device
 print(tensor_on_cpu_for_now)
+
+
+
+
+'''
+DATA (preparing and loading)
+
+data can be almost anything
+- spreadsheets
+-images 
+- videos
+- audio
+-DNA 
+- test
+
+1. get data into numerical representation
+2. build a model to find patterns in it
+
+'''
