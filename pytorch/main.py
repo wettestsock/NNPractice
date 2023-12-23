@@ -14,7 +14,8 @@ hello and welcome to super pytorch super
 
 use gpu !!! a lot more!! 
 
-python coding/NNPractice/pytorch/main.py
+
+
 
 '''
 
@@ -284,12 +285,63 @@ data can be almost anything
 1. get data into numerical representation
 2. build a model to find patterns in it
 
-jdlsfjl
-
-sdjfkld
-
-hi guys
-
-sdjiflis
-dsfjkls
+make data
 '''
+
+# linear regression formula - y = a+bx
+
+weight = 0.7
+bias = 0.3
+
+
+#create a range of nums
+
+start = 0
+end = 1
+step = 0.02
+
+#unsqueeze - adds extra dimension, need later on
+X = torch.arange(start,end,step).unsqueeze(dim=1) 
+
+
+Y = weight * X + bias
+
+#print(X[:10], Y[:10])
+
+
+'''
+SPLITTING DATA INTO 
+TRAINING
+TEST SETS
+
+--- VERY IMPORTANT IN ML
+
+GENERALIZATION
+
+
+important to create training and test splits !!!
+
+'''
+
+#train 80% of the data to predict 20% of the data
+train_split = int(0.8* len(X))
+
+# 80% of the data
+X_train, Y_train = X[:train_split], Y[:train_split]
+
+# 20%
+X_text, Y_text = X[train_split:], Y[train_split:]
+
+
+plt.figure(figsize=(10,7))
+
+plt.scatter(X_train, Y_train, c = 'b', label = 'training data')
+
+plt.scatter(X_text, Y_text, c='r')
+
+plt.show()
+
+
+
+
+
