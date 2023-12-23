@@ -284,4 +284,6 @@ data can be almost anything
 1. get data into numerical representation
 2. build a model to find patterns in it
 
+
+sdjfkld
 '''
