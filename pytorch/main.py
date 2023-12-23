@@ -131,3 +131,79 @@ float_32_tensor = torch.tensor([3.0,6.0,9.0],
 float_16_tensor = float_32_tensor.type(torch.half) 
 
 #print(float_16_tensor)
+
+
+'''
+TENSOR OPERATIONS
+- addition
+- substraction
+- multiplication (element-wise)
+- division
+- matrix multiplication
+
+
+'''
+
+#works same as numpy
+tensor = torch.tensor([1,2,3])
+tensor += 10
+#print(tensor)
+
+#matrix multiplication
+# 2 ways of performing multiplication in NN and deep learning
+
+# 1 : element-wise multiplication
+# 2 : matrix multiplication <- most common  ( DOT PRODUCT)
+'''
+dot product: multiply each row element by its respective column element
+then sum them all
+
+2 conditions:
+inner dimensions must match  
+ex has to be (3,2) @ (2,3)
+2=2 
+
+(3, 2) @ (3,2) wont 
+2 != 3
+
+output: outer dimensions
+
+(3,2) @ (2,3) = (3,3) 
+
+ex: (1,2,3) *** (7,9,11) = 1*7 + 2*9 + 3*11 = 58
+
+if pytorch has a method, then pytorch is faster
+
+TRANSPOSE -
+
+.T 
+transpose method
+'''
+
+#element-wise
+#print(torch.tensor([1,2,3])*torch.tensor([4,4,3]))
+
+
+
+#matrix multiplication
+#tensor_mult = torch.matmul(torch.tensor([1,2,3]), torch.tensor([4,4,3]))
+
+# mm - alias for matmul
+tensor_mult = torch.mm(torch.tensor([1,2,3]), torch.tensor([4,4,3]))
+
+#symbol for matrix multiplication
+#print(torch.tensor([1,2,3]) @ torch.tensor([4,4,3]))
+
+# @@@@@@@@@@
+
+#print(tensor_mult)
+
+'''
+TENSOR AGGREGATION
+min/max/mean/sum/etc
+'''
+#print(tensor_mult.min(), tensor_mult.max(), tensor_mult.mean())
+
+
+# index of the min/max 
+#print(tensor_mult.argmin(), tensor_mult.argmax())
