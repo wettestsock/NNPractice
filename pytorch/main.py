@@ -248,7 +248,18 @@ manual_2 = torch.rand(3,4)
 '''
 runnign pytorch on GPUS
 TODO: do this on my pc lmao
+
+nvidia #1 leader on cuda cores
+
+gpus are a lot better than cpus at numerical calculations
+
 '''
 
 # EASY SOLUTION ON PC
 #print(torch.cuda.is_available())
+
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+
+tensor_on_cpu_for_now = torch.tensor([3,4,3])
+tensor_on_cpu_for_now.to(device) # transfer to device
+print(tensor_on_cpu_for_now)
