@@ -361,6 +361,8 @@ adjust the weight and bias until the weight and bias fit the linear model
 
 nn.Module: 
 head class, all subclasses derived from it
+modules can contain other modules (subclasses)
+works like lego bricks
 
 linReg: 
 nn.Module SUBCLASS
@@ -455,7 +457,28 @@ gradient descent + backpropagation tweak the parameter values
 '''
 
 
+#lsdflj
+    
+'''
+CHECKING CONTENTS OF RANDOM SEED
 
+.parameters() 
+
+cast to a list
+'''
+
+torch.manual_seed(42)
+
+model_0 = linReg()
+#print(list(model_0.parameters()))
+
+
+
+'''
+BUILDING FIRST MODEL!!
+
+LINEAR REGRESSION
+'''
 class linearReg(nn.Module):
 
     def __init__(self):
@@ -467,4 +490,3 @@ class linearReg(nn.Module):
     def forward(self, x:torch.tensor)-> torch.tensor:
         return self.weights*x + self.biases
         
-#lsdflj
