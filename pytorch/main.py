@@ -358,12 +358,35 @@ modules can be stacked on top of each other
 
 start with random numbers, 
 adjust the weight and bias until the weight and bias fit the linear model
+
+nn.Module: 
+head class, all subclasses derived from it
+
+linReg: 
+nn.Module SUBCLASS
+
+linReg.__init__(): 
+initialize model parameters to be used 
+(layers, list of layers, single parameters, hard coded values, functions)
+
+requires_grad:
+gradients, basically keeps track of derivatives 
+required to implement gradient descent
+set by default
+
+forward:
+every subclass of nn.Module requires a forward method (forward propagation)
+forward computation (relu, softmax, other activation functions)
+
+
 '''
 
 
 # parent class 
 
-# linReg: name of nn.Module parent class
+# linReg: nn.Module SUBCLASS
+# nn.Module is the head class 
+
 class linReg(nn.Module):
     def __init__(self):
 
@@ -391,6 +414,8 @@ class linReg(nn.Module):
         self.bias = nn.Parameter(torch.randn(1, requires_grad=True, dtype=torch.float))
         # requires_grad and dtype are default, dont need to initialize 
     # hii
+        
+    # linear regression forward method
     def forward(self, x:torch.Tensor)->torch.Tensor: # x is the input data
         # linear regression formula (ax+b)
         return self.weights * x + self.bias 
