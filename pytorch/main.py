@@ -450,4 +450,20 @@ differentiable function:
 function where derivatives exist at all points of its domain (x values)
 
 if cant find derivative then it its differentiable function 
+
+gradient descent + backpropagation tweak the parameter values
 '''
+
+
+
+class linearReg(nn.Module):
+
+    def __init__(self):
+        super().__init__()
+
+        self.weights = nn.Parameter(torch.randn(1))
+        self.biases = nn.Parameter(torch.randn(1))
+    
+    def forward(self, x:torch.tensor)-> torch.tensor:
+        return self.weights*x + self.biases
+        
