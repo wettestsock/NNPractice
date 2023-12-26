@@ -386,6 +386,6 @@ class linReg(nn.Module):
 
         self.bias = nn.Parameter(torch.randn(1, requires_grad=True, dtype=torch.float))
 
-    
+    # hii
     def forward(self, x:torch.Tensor)->torch.Tensor: # x is the input data
         return self.weights * x + self.bias # linear regression formula (ax+b)
