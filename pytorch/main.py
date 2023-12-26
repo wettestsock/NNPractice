@@ -492,3 +492,5 @@ class linearReg(nn.Module):
         return self.weights*x + self.biases
         
 # fdijfdfdssdfdkjflkdsfdfdk
+
+print("hello linkedin!! im here!!")
