@@ -355,6 +355,9 @@ all models will subclass this class
 
 modules can be stacked on top of each other
 
+
+start with random numbers, 
+adjust the weight and bias until the weight and bias fit the linear model
 '''
 
 
@@ -382,10 +385,44 @@ class linReg(nn.Module):
 
         '''
 
+        # start with a random torch values
         self.weights = nn.Parameter(torch.randn(1,requires_grad=True,dtype=torch.float))
 
         self.bias = nn.Parameter(torch.randn(1, requires_grad=True, dtype=torch.float))
-
+        # requires_grad and dtype are default, dont need to initialize 
     # hii
     def forward(self, x:torch.Tensor)->torch.Tensor: # x is the input data
-        return self.weights * x + self.bias # linear regression formula (ax+b)
+        # linear regression formula (ax+b)
+        return self.weights * x + self.bias 
+    
+'''
+PROCESS
+
+* start with random values fro weight and bias
+* look at training data
+* adjust random values to better represent (get closer) to the ideal values
+
+how does it do so?
+
+through 2 algorithms
+* gradient descend
+* backpropagation
+
+usually another module from nn will define parameters for you 
+for example will manually define the parameters
+
+'''
+
+
+'''
+GRADIENT DESCEND
+
+optimization algorithm for finding a local minimum of a differentiable function
+multivariable calculus (billion quintillion dimensions)
+
+
+differentiable function:
+function where derivatives exist at all points of its domain (x values)
+
+if cant find derivative then it its differentiable function 
+'''
