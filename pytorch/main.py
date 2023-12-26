@@ -333,15 +333,59 @@ X_train, Y_train = X[:train_split], Y[:train_split]
 X_text, Y_text = X[train_split:], Y[train_split:]
 
 
-plt.figure(figsize=(10,7))
+#plt.figure(figsize=(10,7))
 
-plt.scatter(X_train, Y_train, c = 'b', label = 'training data')
+#plt.scatter(X_train, Y_train, c = 'b', label = 'training data')
 
-plt.scatter(X_text, Y_text, c='r')
+#plt.scatter(X_text, Y_text, c='r')
 
-plt.show()
-
-
+#plt.show()
 
 
+'''
+FIRST MODEL
+SIMPLE LINEAR REGRESSION
+IN PYTORCH
 
+
+nn.Module :
+
+BASE CLASS FOR ALL NN MODULES
+all models will subclass this class
+
+modules can be stacked on top of each other
+
+'''
+
+
+# parent class 
+
+# linReg: name of nn.Module parent class
+class linReg(nn.Module):
+    def __init__(self):
+
+        '''
+        SUPER()
+         reference to the parent class (*this but in python)
+         useful for inheritance
+        '''
+        super().__init__()
+
+        '''
+        nn.Parameter
+         special tensor that appears in Module.parameters (when used in a module)
+         automatically appears as parameter in all subclasses
+
+        
+        requires_grad 
+         requires a gradient
+
+        '''
+
+        self.weights = nn.Parameter(torch.randn(1,requires_grad=True,dtype=torch.float))
+
+        self.bias = nn.Parameter(torch.randn(1, requires_grad=True, dtype=torch.float))
+
+    
+    def forward(self, x:torch.Tensor)->torch.Tensor: # x is the input data
+        return self.weights * x + self.bias # linear regression formula (ax+b)
