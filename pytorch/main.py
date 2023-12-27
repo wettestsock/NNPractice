@@ -578,7 +578,9 @@ model parameters
 
 lr:
 learning rate
+step size each iteration of the optimizer goes through to reach the local minimum
+
 '''
 
-optimizer = optim.SGD(params= model_0.parameters())
+optimizer = optim.SGD(params= model_0.parameters(), lr=0.01)
 
