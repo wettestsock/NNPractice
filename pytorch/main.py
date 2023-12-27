@@ -505,4 +505,4 @@ MAKING PREDICTIONS WITH .inference_mode()
 with torch.inference_mode():
     y_preds = model_0(X_test)
 
-print(y_preds)
+print(y_preds, Y_test)
