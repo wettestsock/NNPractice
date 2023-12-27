@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import torch 
 import torch.cuda
 from torch import nn  #neural network functios
+from torch import optim
 
 
 # IT WORKS
@@ -534,4 +535,50 @@ takes account the loss and adjusts the model's parameters accordingly
 
 '''
 
-print(model_0.state_dict())
+'''
+FOR PYTORCH:
+
+need a training loop AND testing loop
+
+'''
+
+# prints the parameters in a dictionary
+# print(model_0.state_dict())
+
+
+
+
+
+'''
+LOSS FUNCTIONS
+
+confusing names
+'''
+
+'''
+L1LOSS
+
+loss function
+measures mean absolute error
+
+'''
+
+loss_fn = nn.L1Loss()
+
+'''
+lots of optimizers
+
+figure which one works best
+
+STOCHASTIC GRADIENT DESCENT 
+randomly tweaks parameters until they fit
+
+params:
+model parameters
+
+lr:
+learning rate
+'''
+
+optimizer = optim.SGD(params= model_0.parameters())
+
