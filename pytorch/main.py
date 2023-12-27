@@ -330,14 +330,14 @@ train_split = int(0.8* len(X))
 X_train, Y_train = X[:train_split], Y[:train_split]
 
 # 20%
-X_text, Y_text = X[train_split:], Y[train_split:]
+X_test, Y_test = X[train_split:], Y[train_split:]
 
 
 #plt.figure(figsize=(10,7))
 
 #plt.scatter(X_train, Y_train, c = 'b', label = 'training data')
 
-#plt.scatter(X_text, Y_text, c='r')
+#plt.scatter(X_test, Y_text, c='r')
 
 #plt.show()
 
@@ -493,4 +493,16 @@ class linearReg(nn.Module):
         
 # fdijfdfdssdfdkjflkdsfdfdkfds
 
-print("hello linkedin!! im here!!")
+#print("hello linkedin!! im here!!")
+
+
+'''
+MAKING PREDICTIONS WITH .inference_mode()
+
+
+'''
+
+with torch.inference_mode():
+    y_preds = model_0(X_test)
+
+print(y_preds)
