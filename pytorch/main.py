@@ -590,3 +590,11 @@ optimizer = optim.SGD(params= model_0.parameters(), lr=0.01)
 
 
 print('hi')
+
+
+
+'''
+BUILDING TRAINING & TESTING LOOP IN PYTORCH
+
+
+'''
