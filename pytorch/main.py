@@ -512,7 +512,7 @@ dont need to keep track of gradient descent
 with torch.inference_mode():
     y_preds = model_0(X_test)
 
-print(y_preds,N, Y_test)
+print(y_preds,N*3, Y_test)
 
 
 
