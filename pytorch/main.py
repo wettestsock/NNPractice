@@ -499,10 +499,39 @@ class linearReg(nn.Module):
 '''
 MAKING PREDICTIONS WITH .inference_mode()
 
+makes code run faster when not training model
 
+turns off gradient tracking
+dont need to keep track of gradient descent
 '''
 
+
+#performs badly because model is init with random parameters
 with torch.inference_mode():
     y_preds = model_0(X_test)
 
 print(y_preds, Y_test)
+
+
+
+'''
+LOSS FUNCTIONS
+or criterion or cost function
+
+how WRONG a model is
+lower is better 
+backpropagation tries to find the smallest loss (local minimum, or gradient descent)
+
+torch.nn 
+basic building block for 
+
+'''
+
+'''
+OPTIMIZER FUNCTIONS
+
+takes account the loss and adjusts the model's parameters accordingly
+
+'''
+
+print(model_0.state_dict())
