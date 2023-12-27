@@ -580,7 +580,9 @@ lr:
 learning rate
 step size each iteration of the optimizer goes through to reach the local minimum
 
+difference in each iteration of loss
 '''
 
 optimizer = optim.SGD(params= model_0.parameters(), lr=0.01)
+
 
