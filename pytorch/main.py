@@ -225,8 +225,8 @@ unsuqeeze: adds single dimension to a given dimension
 '''
 
 
-print(tensor_mult.squeeze().shape)
-print(tensor_mult.unsqueeze(0).shape)
+#print(tensor_mult.squeeze().shape)
+#print(tensor_mult.unsqueeze(0).shape)
 
 
 
@@ -270,7 +270,7 @@ device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 tensor_on_cpu_for_now = torch.tensor([3,4,3])
 tensor_on_cpu_for_now.to(device) # transfer to device
-print(tensor_on_cpu_for_now)
+#print(tensor_on_cpu_for_now)
 
 
 
@@ -589,3 +589,4 @@ difference in each iteration of loss
 optimizer = optim.SGD(params= model_0.parameters(), lr=0.01)
 
 
+print('hi')
