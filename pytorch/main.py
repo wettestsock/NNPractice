@@ -7,6 +7,7 @@ from torch import nn  #neural network functios
 from torch import optim
 
 
+N = '\n'
 # IT WORKS
 #print(t.__version__)
 
@@ -511,7 +512,7 @@ dont need to keep track of gradient descent
 with torch.inference_mode():
     y_preds = model_0(X_test)
 
-print(y_preds, Y_test)
+print(y_preds,N, Y_test)
 
 
 
