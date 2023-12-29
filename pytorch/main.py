@@ -631,7 +631,6 @@ model_0.parameters()
 
 # loop through data
 
-for i in range(4):
 
     # TRAIN MODE
     # all parameters that require gradient require it
@@ -639,11 +638,11 @@ for i in range(4):
     #turns off gradient tracking
     #model_0.eval()
 
-    model_0.train()
-    y_pred = model_0(X_train)
+model_0.train()
+y_pred = model_0(X_train)
 
     #input , target
-    loss = nn.L1Loss(y_pred, Y_train) #finds the loss
+loss = nn.L1Loss(y_pred, Y_train) #finds the loss
 
 
 # always keep track of gradient tracking
