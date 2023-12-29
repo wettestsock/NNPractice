@@ -631,7 +631,7 @@ model_0.parameters()
 
 # loop through data
 
-for i in range(0,epochs):
+for i in range(1):
 
     # TRAIN MODE
     # all parameters that require gradient require it
