@@ -331,7 +331,7 @@ important to create training and test splits !!!
 train_split = int(0.8* len(X))
 
 # 80% of the data
-X_train, Y_train = torch.tensor(X[:train_split]), torch.tensor(Y[:train_split])
+X_train, Y_train = X[:train_split], Y[:train_split]
 
 # 20%
 X_test, Y_test = X[train_split:], Y[train_split:]
