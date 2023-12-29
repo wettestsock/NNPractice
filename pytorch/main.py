@@ -604,8 +604,39 @@ fsjdlffesjfldsdljflkcd dj
 3. calculate loss (how wrong it is)
 4. optimizer zero grad
 5. loss backward to calculate gradients of each parameter with respect to loss (derivatives)
+
+gradient: the slope to go down on (more negative slope of left/right)
+
 6. optimizer (backpropagation, adjusts parameters to reduce loss)
 7. do this again
 
 
+WRITE CODE TO DO ALL THIS:
+
+EPOCH: # of loops through data
+^ a hyperparameter
+
+hyperparameter: super parameter set by user
+
+.parameters()    inits the parameters
+.train()        tells that youre training model
+.eval()         turns off gradients (before inference mode)
+
+
 '''
+epochs = 1
+
+# inits the parameters
+model_0.parameters()
+
+# loop through data
+
+for epoch in range(epochs):
+
+    # TRAIN MODE
+    # all parameters that require gradient require it
+
+    model_0.train()
+
+    #turns off gradient tracking
+    #model_0.eval()
