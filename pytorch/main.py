@@ -624,7 +624,7 @@ hyperparameter: super parameter set by user
 
 
 '''
-epochs = 1
+epochs = int(1)
 
 # inits the parameters
 model_0.parameters()
