@@ -108,7 +108,7 @@ MAKE A RANGE OF TENSORS
 #print(range)
 
 #zeros liek 
-ten_zeros = torch.zeros_like(range)
+#ten_zeros = torch.zeros_like(range)
 
 #print(ten_zeros)
 
