@@ -104,7 +104,7 @@ ones = torch.ones(5,34)
 MAKE A RANGE OF TENSORS
 '''
 
-range = torch.arange(0,10) # 0 to 10 (exclusive) so 0 <= x < 10
+#range = torch.arange(0,10) # 0 to 10 (exclusive) so 0 <= x < 10
 #print(range)
 
 #zeros liek 
