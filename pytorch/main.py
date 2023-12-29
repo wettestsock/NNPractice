@@ -598,4 +598,14 @@ BUILDING TRAINING & TESTING LOOP IN PYTORCH
 hello
 fsjdlffesjfldsdljflkcd dj
 
+
+1. loop through
+2. forward pass aka forward propagation
+3. calculate loss (how wrong it is)
+4. optimizer zero grad
+5. loss backward to calculate gradients of each parameter with respect to loss (derivatives)
+6. optimizer (backpropagation, adjusts parameters to reduce loss)
+7. do this again
+
+
 '''
