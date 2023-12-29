@@ -631,6 +631,7 @@ model_0.parameters()
 
 # loop through data
 
+optimizer = optim.SGD(params= model_0.parameters(), lr=0.01)
 for epoch in range(epochs):
 
     # TRAIN MODE
@@ -639,18 +640,24 @@ for epoch in range(epochs):
     #turns off gradient tracking
     #model_0.eval()
 
+    # SET IT TO TRAINING MODE
     model_0.train()
+
+    # 1. FORWARD PASS
     y_pred = model_0(X_train)
 
+    # 2. FIND LOSS
     #input , target
     loss = loss_fn(y_pred, Y_train) #finds the loss
 
-    #optimizer zero grad
-    optimizer.zero_grad()
 
+    # 3. OPTIMIZER
+    optim.SGD(params= model_0.parameters(), lr=0.01).zero_grad()
 
+    # 4. BACKPROPAGATION
     loss.backward()
 
+    # 5. STEP THE OPTIMIZER (GRADIENT DESCENT)
     optimizer.step()
 
 
