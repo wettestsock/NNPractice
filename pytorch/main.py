@@ -624,14 +624,14 @@ hyperparameter: super parameter set by user
 
 
 '''
-epochs = int(1)
+epochs = 1
 
 # inits the parameters
 model_0.parameters()
 
 # loop through data
 
-for i in range(epochs):
+for epoch in range(epochs):
 
     # TRAIN MODE
     # all parameters that require gradient require it
