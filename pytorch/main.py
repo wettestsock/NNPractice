@@ -645,6 +645,14 @@ for i in range(epochs):
     #input , target
     loss = loss_fn(y_pred, Y_train) #finds the loss
 
+    #optimizer zero grad
+    optimizer.zero_grad()
+
+
+    loss.backward()
+
+    optimizer.step()
+
 
 # always keep track of gradient tracking
     
