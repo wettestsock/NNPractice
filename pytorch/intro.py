@@ -761,4 +761,4 @@ print(model_0.state_dict())
 # a new model
 loaded_model_0 = linReg()
 
-print('initialized loaded model:', loaded_model_0.state_dict())
+print('initialized loaded model:')
