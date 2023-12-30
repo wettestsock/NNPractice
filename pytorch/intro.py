@@ -755,7 +755,7 @@ print(model_save_path)
 # saves on the cpu
 torch.save(model_0.state_dict(), model_save_path)
 
-print(model_0.state_dict())
+#print(model_0.state_dict())
 
 
 # a new model
