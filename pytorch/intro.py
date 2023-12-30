@@ -751,6 +751,14 @@ model_name = 'torch_model.pt' #.pt / .pth pytorch file
 model_save_path = model_path / model_name # pathlib library
 print(model_save_path)
 
+
+# saves on the cpu
 torch.save(model_0.state_dict(), model_save_path)
 
 print(model_0.state_dict())
+
+
+# a new model
+loaded_model_0 = linReg()
+
+print('initialized loaded model:', loaded_model_0.state_dict())
