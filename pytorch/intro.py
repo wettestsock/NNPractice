@@ -720,7 +720,7 @@ for i in range(3):
 
 # for binary classification binary cross entropy loss is better
 # loss function depends on the problem
-    
+
 
 
 
