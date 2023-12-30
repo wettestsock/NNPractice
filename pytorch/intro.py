@@ -692,6 +692,7 @@ with torch.inference_mode():
     plt.scatter(X_test, y_preds_new, c='r')
     plt.show()
 
+# with torch.no_grad(): - older, slower way of doing this
 
 '''
 TRAIN
