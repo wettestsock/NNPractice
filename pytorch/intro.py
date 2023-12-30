@@ -685,7 +685,11 @@ for epoch in range(epochs):
 model_0.eval()
 
 
-# updated model parameters after steps
+with torch.inference_mode():
+    y_preds_new = model_0(X_test)
+    plt.scatter(X_train, Y_train, c='b')
+    plt.scatter(X_test, y_preds_new, c='r')
+    plt.show()
 
 
 '''
