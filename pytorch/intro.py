@@ -661,7 +661,7 @@ for epoch in range(epochs):
     # 2. FIND LOSS
     #input , target
     loss = loss_fn(y_pred, Y_train) #finds the loss
-    print('the loss is:', loss.tolist())
+    #print('the loss is:', loss.tolist())
 
     # 3. OPTIMIZER ZERO GRAD
     # if slope is 0, sets it to none
@@ -676,7 +676,7 @@ for epoch in range(epochs):
     #how optimizer changes will accumulate through the loop
     #have to zero them for next iteration
 
-    print(model_0.state_dict())
+    #print(model_0.state_dict())
 
 
 # always keep track of gradient tracking
@@ -684,14 +684,14 @@ for epoch in range(epochs):
 # turns off gradient tracking
 model_0.eval()
 
-
+'''
 # ARRGGG IT WORKS !!! ARRGG
 with torch.inference_mode():
     y_preds_new = model_0(X_test)
     plt.scatter(X_train, Y_train, c='b')
     plt.scatter(X_test, y_preds_new, c='r')
     plt.show()
-
+'''
 # with torch.no_grad(): - older, slower way of doing this
 
 '''
@@ -739,5 +739,16 @@ can save the entire model if you want
 
 
 '''
+
+from pathlib import Path
+
+# make model dir
+model_path = Path('models')
+model_path.mkdir(parents=True, exist_ok=True)
+
+#model save path
+model_name = 'torch_model.pt' #.pt / .pth pytorch file 
+model_save_path = model_path / model_name # pathlib library
+
 
 print(model_0.state_dict())
