@@ -722,7 +722,22 @@ for i in range(3):
 # loss function depends on the problem
 
 
+'''
+SAVING A MODEL IN PYTORCH
+
+PICKLE: python's save format
+serialization: storing an object outside the code 
+deserializing: accessing it
+
+3 ways:
+- torch.save() -saves pytorch object in python's pickle format
+- torch.load()
+- torch.nn.Module.load_state_dict() - loads a models saved state dictionary
+
+recommended to save the state dict (parameter values)
+can save the entire model if you want
 
 
+'''
 
-
+print(model_0.state_dict())
