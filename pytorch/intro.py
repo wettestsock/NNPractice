@@ -672,6 +672,8 @@ for epoch in range(epochs):
 # turns off gradient tracking
 model_0.eval()
 
+print(model_0.state_dict())
+
 
 '''
 TRAIN
@@ -683,16 +685,22 @@ STEP
 
 dfk
 '''
+
+'''
 optimizer = torch.optim.SGD(model_0.parameters(), lr=0.01)
 
 for i in range(3):
-    model_0.train()
-    y_pred = model_0.forward(X_train)
-    loss = loss_fn(y_pred, Y_train)
-    optimizer.zero_grad()
-    loss.backward()
+    model_0.train() # trian mode
+    y_pred = model_0.forward(X_train) # predict
+    loss = loss_fn(y_pred, Y_train) # loss 
+    optimizer.zero_grad() #reset gradient
+    loss.backward() #adjust parameters
     optimizer.step() # PARAMETER UPDATE
 
+'''
+
+# for binary classification binary cross entropy loss is better
+# loss function depends on the problem
     
 
 
