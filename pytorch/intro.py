@@ -634,7 +634,15 @@ loss_fn = torch.nn.L1Loss()
 optimizer = optim.SGD(params= model_0.parameters(), lr=0.001)
 
 torch.manual_seed(42)
-epochs = 200
+epochs = 1000
+
+
+'''
+TRUE WEIGHT AND BIAS:
+
+weight = 0.7
+bias = 0.3
+'''
 
 for epoch in range(epochs):
 
