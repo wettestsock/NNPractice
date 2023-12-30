@@ -668,6 +668,8 @@ for epoch in range(epochs):
     #how optimizer changes will accumulate through the loop
     #have to zero them for next iteration
 
+    print(model_0.state_dict())
+
 
 # always keep track of gradient tracking
     
@@ -676,7 +678,6 @@ model_0.eval()
 
 
 # updated model parameters after steps
-print(model_0.state_dict())
 
 
 '''
