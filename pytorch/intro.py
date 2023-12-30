@@ -685,6 +685,7 @@ for epoch in range(epochs):
 model_0.eval()
 
 
+# ARRGGG IT WORKS !!! ARRGG
 with torch.inference_mode():
     y_preds_new = model_0(X_test)
     plt.scatter(X_train, Y_train, c='b')
