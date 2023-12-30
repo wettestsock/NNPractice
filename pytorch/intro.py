@@ -624,7 +624,6 @@ hyperparameter: super parameter set by user
 
 
 '''
-epochs = 1
 
 # inits the parameters
 model_0.parameters()
@@ -632,7 +631,10 @@ model_0.parameters()
 # loop through data
 
 loss_fn = torch.nn.L1Loss()
-optimizer = optim.SGD(params= model_0.parameters(), lr=0.01)
+optimizer = optim.SGD(params= model_0.parameters(), lr=0.001)
+
+torch.manual_seed(42)
+epochs = 1
 
 for epoch in range(epochs):
 
@@ -672,6 +674,10 @@ for epoch in range(epochs):
 # turns off gradient tracking
 model_0.eval()
 
+
+# updated model parameters after steps
+
+print(loss_fn)
 print(model_0.state_dict())
 
 
