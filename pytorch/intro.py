@@ -680,6 +680,8 @@ LOSS
 OPTIMIZE
 BACKPROPAGE
 STEP
+
+dfk
 '''
 
     
