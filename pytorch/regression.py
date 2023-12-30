@@ -20,6 +20,7 @@ use gpu !!! a lot more!!
 
 
 
+REGRESSION: predicting a number!!
 
 '''
 
@@ -766,3 +767,4 @@ print('initialized loaded model:', N,  loaded_model_0.state_dict())
 loaded_model_0.load_state_dict(torch.load('models/torch_model.pt'))
 
 print('opened saved model:', N, loaded_model_0.state_dict())
+
