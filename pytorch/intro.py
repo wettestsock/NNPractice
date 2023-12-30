@@ -634,7 +634,7 @@ loss_fn = torch.nn.L1Loss()
 optimizer = optim.SGD(params= model_0.parameters(), lr=0.001)
 
 torch.manual_seed(42)
-epochs = 5
+epochs = 30
 
 for epoch in range(epochs):
 
