@@ -653,7 +653,7 @@ for epoch in range(epochs):
     # 2. FIND LOSS
     #input , target
     loss = loss_fn(y_pred, Y_train) #finds the loss
-    print('the loss is:', list(loss))
+    print('the loss is:', loss.tolist())
 
     # 3. OPTIMIZER ZERO GRAD
     # if slope is 0, sets it to none
