@@ -631,10 +631,10 @@ model_0.parameters()
 # loop through data
 
 loss_fn = torch.nn.L1Loss()
-optimizer = optim.SGD(params= model_0.parameters(), lr=0.001)
+optimizer = optim.SGD(params= model_0.parameters(), lr=0.01)
 
 torch.manual_seed(42)
-epochs = 20
+epochs = 10
 
 
 '''
