@@ -749,6 +749,6 @@ model_path.mkdir(parents=True, exist_ok=True)
 #model save path
 model_name = 'torch_model.pt' #.pt / .pth pytorch file 
 model_save_path = model_path / model_name # pathlib library
-
+print(model_save_path)
 
 print(model_0.state_dict())
