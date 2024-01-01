@@ -42,7 +42,7 @@ X, y = make_circles(n_samples, # 1000 samples
 X = torch.tensor(X)
 y = torch.tensor(y)
 
-print(X[0],N, y)
+print(X[:,0],N, y)
 
 #plt.scatter(X[0], X[1], y)
 #plt.show()
