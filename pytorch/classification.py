@@ -40,9 +40,18 @@ X, y = make_circles(n_samples, # 1000 samples
                     random_state=42) # random seed
 
 X = torch.tensor(X)
-y = torch.tensor(y)
+y = torch.tensor(y)+torch.tensor([2])
 
 print(X,N, y)
 
-plt.scatter(X[:,0], X[:,1], c=y)
-plt.show()
+
+'''
+GRAPHS 2 CIRCLES
+WANT TO PREDICT IF GIVEN X AND Y COORDINATES ARE THE OUTER OR INNER CIRCLE
+
+note: data worked in is often called as a toy dataset
+TOY DATASET: data small enough to experiment but big enough to stabilize
+'''
+# c - classify (separates data)
+#plt.scatter(X[:,0], X[:,1], c=y)
+#plt.show()
