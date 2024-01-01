@@ -32,8 +32,8 @@ from sklearn.datasets import make_circles
 
 n_samples = 1000
 
-X, y = make_circles(n_samples, # 1000 samples
+X, y = torch.tensor(make_circles(n_samples, # 1000 samples
                     noise=0.03, #randomness
-                    random_state=42) # random seed
+                    random_state=42)) # random seed
 
-print(len(X), len(y))
+print(X,y)
