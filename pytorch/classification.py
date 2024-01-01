@@ -44,5 +44,5 @@ y = torch.tensor(y)
 
 print(X,N, y)
 
-plt.scatter(X[:,0], X[:,1], c=y, cmap= plt.cm.RdYlBu)
+plt.scatter(X[:,0], X[:,1], c=y)
 plt.show()
