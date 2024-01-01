@@ -39,10 +39,10 @@ X, y = make_circles(n_samples, # 1000 samples
                     noise=0.03, #randomness
                     random_state=42) # random seed
 
-X = torch.tensor(X[:,0])
+X = torch.tensor(X)
 y = torch.tensor(y)
 
 print(X,N, y)
 
-plt.scatter(X, y)
+plt.scatter(X[0], X[1], y)
 plt.show()
