@@ -42,6 +42,7 @@ X, y = make_circles(n_samples, # 1000 samples
 X = torch.tensor(X)
 y = torch.tensor(y)
 y[1] = 2
+y[5] = 3
 
 print(X,N, y)
 
