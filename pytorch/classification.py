@@ -69,7 +69,7 @@ FINALLY MAKING A MODEL
 '''
 
 # data to train
-X_train, y_train = X[:int(X.size()*0.8)], y[:int(y.size()*0.8)]
+X_train, y_train = X[:int(len(X)*0.8)], y[:int(len(y)*0.8)]
 print(X_train.size(), y_train.size())
 
 # data to test
