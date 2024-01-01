@@ -39,7 +39,7 @@ X, y = make_circles(n_samples, # 1000 samples
                     noise=0.03, #randomness
                     random_state=42) # random seed
 
-X = torch.tensor(X)
+X = torch.tensor(X[:,0])
 y = torch.tensor(y)
 
 print(X,N, y)
