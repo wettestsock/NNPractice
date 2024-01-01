@@ -47,6 +47,13 @@ print(X,N, y)
 
 '''
 GRAPHS 2 CIRCLES
+
+inputs are of list length 2 (very small)
+can be represented by x and y 
+
+could be working with millions of length with millions of dimensions
+
+
 WANT TO PREDICT IF GIVEN X AND Y COORDINATES ARE THE OUTER OR INNER CIRCLE
 
 note: data worked in is often called as a toy dataset
@@ -68,7 +75,10 @@ FINALLY MAKING A MODEL
 
 '''
 
+# 80 20 split
 split_80_20 = int(len(X)*0.8)
+
+
 # data to train
 X_train, y_train = X[:split_80_20], y[:split_80_20]
 
@@ -76,10 +86,13 @@ X_train, y_train = X[:split_80_20], y[:split_80_20]
 # data to test
 X_test, y_test = X[split_80_20:], y[split_80_20:]
 
-print(X_train.size(), y_train.size(), X_test.size(), y_test.size())
+#check the size
+#print(X_train.size(), y_train.size(), X_test.size(), y_test.size())
 
 class circleModel(nn.Module):
     def __init__() -> None:
         super().__init__()
 
+        self.layer_1 = nn.Linear(in_features=2, # per neuron 
+                                 )
         # define hidden layers
