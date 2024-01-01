@@ -19,4 +19,14 @@ from pathlib import Path
 
  MULTILABEL CLASSIFICATION:
  assigning multiple labels/tags to a single image
+
+
+ classification inputs and outputs:
+
+
+ BACH SIZE:
+ 32 inputs at a time and they output the probabilites, compared to train outputs
+ 
+ 32 is very common batch size because it's efficient
 '''
+
