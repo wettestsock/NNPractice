@@ -1,6 +1,7 @@
 
 import torch
 import torch.nn 
+from matplotlib import pyplot as plt
 from pathlib import Path
 from sklearn.datasets import make_circles
 
@@ -42,3 +43,6 @@ X = torch.tensor(X)
 y = torch.tensor(y)
 
 print(X,N, y)
+
+plt.scatter(X, y)
+plt.show()
