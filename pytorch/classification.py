@@ -1,6 +1,6 @@
 
 import torch
-import torch.nn 
+from torch import nn
 from matplotlib import pyplot as plt
 from pathlib import Path
 from sklearn.datasets import make_circles
@@ -41,8 +41,6 @@ X, y = make_circles(n_samples, # 1000 samples
 
 X = torch.tensor(X)
 y = torch.tensor(y)
-y[1] = 2
-y[5] = 3
 
 print(X,N, y)
 
@@ -55,5 +53,29 @@ note: data worked in is often called as a toy dataset
 TOY DATASET: data small enough to experiment but big enough to stabilize
 '''
 # c - classify (separates data)
-plt.scatter(X[:,0], X[:,1], c=y)
-plt.show()
+#plt.scatter(X[:,0], X[:,1], c=y)
+#plt.show()
+
+
+'''
+FINALLY MAKING A MODEL
+
+1. subclasses nn.Module
+2. 2 nn.Linear() layers (hidden layers) (can handle the shapes of data)
+3. define forward method
+4. instantiate instance of model class and send to target device
+
+
+'''
+
+# data to train
+X_train, y_train = X[X.size()*0.8], y[y.size()*0.8]
+print(X_train.size(), y_train.size())
+
+# data to test
+
+class circleModel(nn.Module):
+    def __init__() -> None:
+        super().__init__()
+
+        # define hidden layers
