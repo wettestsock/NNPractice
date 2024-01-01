@@ -4,6 +4,7 @@ import torch.nn
 from pathlib import Path
 from sklearn.datasets import make_circles
 
+N = '\n'
 
 '''
  CLASSIFICATION: predicting a THING
@@ -32,6 +33,7 @@ from sklearn.datasets import make_circles
 
 n_samples = 1000
 
+# make_circles returns x and y 
 X, y = make_circles(n_samples, # 1000 samples
                     noise=0.03, #randomness
                     random_state=42) # random seed
@@ -39,4 +41,4 @@ X, y = make_circles(n_samples, # 1000 samples
 X = torch.tensor(X)
 y = torch.tensor(y)
 
-print(X,y)
+print(X,N, y)
