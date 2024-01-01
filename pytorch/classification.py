@@ -36,4 +36,4 @@ X, y = make_circles(n_samples, # 1000 samples
                     noise=0.03, #randomness
                     random_state=42) # random seed
 
-len(X), len(y)
+print(len(X), len(y))
