@@ -53,5 +53,5 @@ note: data worked in is often called as a toy dataset
 TOY DATASET: data small enough to experiment but big enough to stabilize
 '''
 # c - classify (separates data)
-#plt.scatter(X[:,0], X[:,1], c=y)
-#plt.show()
+plt.scatter(X[:,0], X[:,1], c=y)
+plt.show()
