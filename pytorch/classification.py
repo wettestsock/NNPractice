@@ -68,11 +68,15 @@ FINALLY MAKING A MODEL
 
 '''
 
+split_80_20 = int(len(X)*0.8)
 # data to train
-X_train, y_train = X[:int(len(X)*0.8)], y[:int(len(y)*0.8)]
-print(X_train.size(), y_train.size())
+X_train, y_train = X[:split_80_20], y[:split_80_20]
+
 
 # data to test
+X_test, y_test = X[split_80_20:], y[split_80_20:]
+
+print(X_train.size(), y_train.size(), X_test.size(), y_test.size())
 
 class circleModel(nn.Module):
     def __init__() -> None:
