@@ -114,4 +114,4 @@ class circleModel(nn.Module):
     
 model_0 = circleModel().to(device='cpu') # model to cpu
 
-print(model_0.state_dict())
+#print(model_0.state_dict())
