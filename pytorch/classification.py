@@ -156,4 +156,4 @@ layer 2:
     1 bias for the 1 output
 '''
 
-#print(model_0.state_difdct())dkfjkl
+#print(model_0.state_difdct())dkfjklgdf
