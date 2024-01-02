@@ -113,3 +113,5 @@ class circleModel(nn.Module):
 # instantiate model class and send to target device
     
 model_0 = circleModel().to(device='cpu') # model to cpu
+
+print(model_0)
