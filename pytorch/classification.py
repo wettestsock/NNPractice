@@ -90,9 +90,16 @@ X_test, y_test = X[split_80_20:], y[split_80_20:]
 #print(X_train.size(), y_train.size(), X_test.size(), y_test.size())
 
 class circleModel(nn.Module):
-    def __init__() -> None:
+    def __init__(self):
         super().__init__()
 
+        # input layer 
+        # 2 features (X has 2 features)
+        # out features is 5 (hidden layer) 
         self.layer_1 = nn.Linear(in_features=2, # per neuron 
-                                 )
+                                 out_features=8) # hidden layer output, are usually a multiple of 8
+        
+        # shape features have to match the previous out
+        self.layer_2 = nn.Linear(in_features=8, # hidden layer input
+                                 out_features=1) # 1 output (binary classification), the output layer
         # define hidden layers
