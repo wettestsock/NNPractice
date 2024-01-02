@@ -93,6 +93,14 @@ class circleModel(nn.Module):
     def __init__(self):
         super().__init__()
 
+
+        '''
+        nn.Linear:
+            random when initialized
+            linear transofrmation to the incoming data
+            applies linear y=mx+b transformation to the vector
+
+        '''
         # input layer 
         # 2 features (X has 2 features)
         # out features is 5 (hidden layer) 
@@ -103,6 +111,11 @@ class circleModel(nn.Module):
         self.layer_2 = nn.Linear(in_features=8, # hidden layer input
                                  out_features=1) # 1 output (binary classification), the output layer
         # define hidden layers
+
+        self.two_linear_layers = nn.Sequential(
+           nn.Linear(in_features=2, out_features=8),
+           nn.Linear(in_features=8, out_features=1) 
+        )
 
     # forward pass
     def forward(self, x):
@@ -115,6 +128,13 @@ class circleModel(nn.Module):
 model_0 = circleModel().to(device='cpu') # model to cpu
 
 
+'''
+nn.Sequential:
+    has the input layers and sequentially iterates over them
+    same as the coded class 
+
+    however, sublasses are for more complicated models
+'''
 model_0 = nn.Sequential(
     nn.Linear(in_features=2, out_features=8),
     nn.Linear(in_features=8, out_features=1)
