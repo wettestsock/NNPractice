@@ -42,7 +42,7 @@ X, y = make_circles(n_samples, # 1000 samples
 X = torch.tensor(X)
 y = torch.tensor(y)
 
-print(X,N, y)
+#print(X,N, y)
 
 
 '''
@@ -103,3 +103,13 @@ class circleModel(nn.Module):
         self.layer_2 = nn.Linear(in_features=8, # hidden layer input
                                  out_features=1) # 1 output (binary classification), the output layer
         # define hidden layers
+
+    # forward pass
+    def forward(self, x):
+        # output of layer 1 goes into input of layer 2 and returns that
+        return self.layer_2(self.layer_1(x))
+    
+
+# instantiate model class and send to target device
+    
+model_0 = circleModel().to(device='cpu') # model to cpu
