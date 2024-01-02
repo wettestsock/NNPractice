@@ -114,4 +114,11 @@ class circleModel(nn.Module):
     
 model_0 = circleModel().to(device='cpu') # model to cpu
 
+
+model_0 = nn.Sequential(
+    nn.Linear(in_features=2, out_features=8),
+    nn.Linear(in_features=8, out_features=1)
+).to('cpu')
+
+
 print(model_0.state_dict())
