@@ -135,10 +135,25 @@ nn.Sequential:
 
     however, sublasses are for more complicated models
 '''
+
+'''
 model_0 = nn.Sequential(
     nn.Linear(in_features=2, out_features=8),
     nn.Linear(in_features=8, out_features=1)
 ).to('cpu')
+'''
 
 
-print(model_0.state_dict())
+'''
+layer 1: 
+    2 input features, 8 output features, 
+    and bias for wach output feature
+
+    and bias
+
+layer 2:
+    8 input features, 1 output feature 
+    1 bias for the 1 output
+'''
+
+#print(model_0.state_dict())
