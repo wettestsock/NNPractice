@@ -110,11 +110,13 @@ class circleModel(nn.Module):
 
 
         self.layer_1 = nn.Linear(in_features=2, # per neuron 
-                                 out_features=8) # hidden layer output, are usually a multiple of 8
+                                 out_features=8,
+                                 dtype=float) # hidden layer output, are usually a multiple of 8
         
         # shape features have to match the previous out
         self.layer_2 = nn.Linear(in_features=8, # hidden layer input
-                                 out_features=1) # 1 output (binary classification), the output layer
+                                 out_features=1,
+                                 dtype=float) # 1 output (binary classification), the output layer
         # define hidden layers
 
         '''
