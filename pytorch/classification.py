@@ -40,8 +40,8 @@ X, y = make_circles(n_samples, # 1000 samples
                     noise=0.03, #randomness
                     random_state=42) # random seed
 
-X = torch.tensor(X)
-y = torch.tensor(y)
+X = torch.tensor(X,dtype=float)
+y = torch.tensor(y, dtype=float)
 
 #print(X,N, y)
 
