@@ -223,14 +223,4 @@ layers and activation functions are separate
 
 '''
 
-model_0.eval()
-with torch.inference_mode():
-    y_logits = model_0.forward(X_train)
-
-
-torch.save(model_0, 'models/torch_model2.pt')
-
-y_pred_probs = torch.sigmoid(y_logits)
-y_pred_probs = torch.round(y_pred_probs)
-
 
