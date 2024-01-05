@@ -225,7 +225,7 @@ layers and activation functions are separate
 
 model_0.eval()
 with torch.inference_mode():
-    y_logits = model_0(X_test[:5])
+    y_logits = model_0(X_train[:5])
 
 
 torch.save(model_0, 'models/torch_model2.pt')
