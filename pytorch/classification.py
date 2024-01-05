@@ -223,18 +223,6 @@ layers and activation functions are separate
 
 '''
 
-run = 1
-
-for i in range(run):
-    model_0.train()
-    y_pred = model_0.forward(X_train)
-
-    loss = loss_fn(y_pred, y_train)
-
-    optimizer.zero_grad()
-    loss.backward()
-    optimizer.step()
-
 model_0.eval()
 with torch.inference_mode():
     y_logits = model_0(X_test[:5])
