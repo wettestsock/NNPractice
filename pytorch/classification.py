@@ -199,6 +199,11 @@ layer that feeds into softmax activation function (output layer) - outputs are p
 
 for optimizers: SGD and adam, however, pytorch has more
 ^ problem-specific
+
+LOGITS:
+if probability over .5, make it 1
+if probability under .5, make it 0
+
 '''
 
 #calculate accuracy, out of 100 samples what percent does model get right?
@@ -252,11 +257,31 @@ for epoch in range(epochs):
     y_pred = torch.round(torch.sigmoid(y_logits))
 
     # calculate loss/accuracy percentage
+    '''
+    without logits 
 
+    loss = loss_fn(torch.sigmoid(y_logits),
+                   y_train)
+    '''
+                   
     loss = loss_fn(y_logits,
                    y_train)
     
     # custom accuracy function, just percent
     acc = accuracy_fn(y_train, y_pred)
 
-    
+    optimizer.zero_grad()
+
+    # calculate the gradients 
+    loss.backward()
+
+    # tweak the parameters according to gradients
+    optimizer.step()
+
+
+model_0.eval()
+with torch.inference_mode():
+    test_logits = model_0(X_test).squeeze()
+    test_pred = torch.round(torch.sigmoid(test_logits))
+
+
