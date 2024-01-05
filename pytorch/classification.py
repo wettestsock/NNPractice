@@ -97,6 +97,8 @@ class circleModel(nn.Module):
 
         '''
         nn.Linear:
+            linear layer
+        
             random when initialized
             linear transofrmation to the incoming data
             applies linear y=mx+b transformation to the vector
@@ -105,6 +107,8 @@ class circleModel(nn.Module):
         # input layer 
         # 2 features (X has 2 features)
         # out features is 5 (hidden layer) 
+
+
         self.layer_1 = nn.Linear(in_features=2, # per neuron 
                                  out_features=8) # hidden layer output, are usually a multiple of 8
         
@@ -176,6 +180,14 @@ for regression: MAE or MSE (mean squared error)
 for classification: binary cross-entropy or categorical cross-entropy
 for classification: SGD and adam optimizers
 
+for binary: sigmoid is better for output layer
+for classification: softmax is better
+
+nn.BCELoss
+
+more stable and faster than creating them separately
+nn.BCEWithLogitsLoss  (combines sigmoid layer and BCELoss)
+
 
 for multi class classification: cross entropy loss
 '''
@@ -186,7 +198,51 @@ LOGITS LAYER:
 layer that feeds into softmax activation function (output layer) - outputs are probabilities
 
 for optimizers: SGD and adam, however, pytorch has more
+^ problem-specific
 '''
 
+
+loss_fn = torch.nn.BCEWithLogitsLoss()
+optimizer = torch.optim.SGD(params=model_0.parameters(), lr=0.1)
+
+#calculate accuracy, out of 100 samples what percent does model get right?
+def accuracy_fn(y_true, y_pred):
+
+    # correct # 
+    correct = torch.eq(y_true, y_pred).sum().item() #item: single value
+
+    return (correct/len(y_pred)) * 100
+
+
+'''
+model outputs will be raw LOGITS
+convert logits into prediction probabilities into a activation function
+(sigmoid for cross entropy and softmax for multiclass)
+
+layers and activation functions are separate
+
+'''
+
+run = 1
+
+for i in range(run):
+    model_0.train()
+    y_pred = model_0.forward(X_train)
+
+    loss = loss_fn(y_pred, y_train)
+
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+
+model_0.eval()
+with torch.inference_mode():
+    y_logits = model_0(X_test[:5])
+
+
+torch.save(model_0, 'models/torch_model2.pt')
+
+y_pred_probs = torch.sigmoid(y_logits)
+y_pred_probs = torch.round(y_pred_probs)
 
 
