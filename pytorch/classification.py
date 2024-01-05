@@ -157,5 +157,8 @@ layer 2:
     1 bias for the 1 output
 '''
 
-print(model_0.state_dict())
+print(model_0.state_dict(), X_train.shape)
 #fdijgjflgdf
+
+
+
