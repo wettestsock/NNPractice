@@ -201,10 +201,6 @@ for optimizers: SGD and adam, however, pytorch has more
 ^ problem-specific
 '''
 
-
-loss_fn = torch.nn.BCEWithLogitsLoss()
-optimizer = torch.optim.SGD(params=model_0.parameters(), lr=0.1)
-
 #calculate accuracy, out of 100 samples what percent does model get right?
 def accuracy_fn(y_true, y_pred):
 
@@ -224,3 +220,43 @@ layers and activation functions are separate
 '''
 
 
+'''
+BUILDING MODEL
+'''
+
+
+'''
+takes logits (0 and 1) as inputs!!
+
+BCELoss takes prediction probabilities
+'''
+loss_fn = torch.nn.BCEWithLogitsLoss()
+
+'''
+SDG !!
+'''
+
+optimizer = torch.optim.SGD(params=model_0.parameters(), lr=0.1)
+
+torch.manual_seed(42)
+
+epochs = 100
+
+for epoch in range(epochs):
+    model_0.train() # TRAINING MODE
+
+    #forward pass
+    y_logits = model_0(X_train).squeeze()
+
+    # turns logits into pred probs into pred labels (binary)
+    y_pred = torch.round(torch.sigmoid(y_logits))
+
+    # calculate loss/accuracy percentage
+
+    loss = loss_fn(y_logits,
+                   y_train)
+    
+    # custom accuracy function, just percent
+    acc = accuracy_fn(y_train, y_pred)
+
+    
