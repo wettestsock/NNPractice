@@ -113,10 +113,12 @@ class circleModel(nn.Module):
                                  out_features=1) # 1 output (binary classification), the output layer
         # define hidden layers
 
+        '''
         self.two_linear_layers = nn.Sequential(
            nn.Linear(in_features=2, out_features=8),
            nn.Linear(in_features=8, out_features=1) 
         )
+        '''
 
     # forward pass
     def forward(self, x):
@@ -157,8 +159,34 @@ layer 2:
     1 bias for the 1 output
 '''
 
-print(model_0.state_dict(), X_train.shape)
+print(model_0.state_dict())
 #fdijgjflgdf
+
+
+'''
+LOSS FUNCTION AND OPTIMIZER
+'''
+
+'''
+loss: MAE (mean absolute error)
+doesnt work for classification
+
+for regression: MAE or MSE (mean squared error)
+
+for classification: binary cross-entropy or categorical cross-entropy
+for classification: SGD and adam optimizers
+
+
+for multi class classification: cross entropy loss
+'''
+
+'''
+LOGITS LAYER:
+
+layer that feeds into softmax activation function (output layer) - outputs are probabilities
+
+for optimizers: SGD and adam, however, pytorch has more
+'''
 
 
 
