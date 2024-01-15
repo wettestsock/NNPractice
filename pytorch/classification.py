@@ -8,7 +8,7 @@ from sklearn.datasets import make_circles
 N = '\n'
 
 
-
+# torch gpu device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print(device)
 
@@ -139,7 +139,7 @@ class circleModel(nn.Module):
 
 # instantiate model class and send to target device
     
-model_0 = circleModel().to(device='cpu') # model to cpu
+model_0 = circleModel().to(device) # model to device 
 
 
 '''
