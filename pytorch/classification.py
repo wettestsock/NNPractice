@@ -7,7 +7,10 @@ from sklearn.datasets import make_circles
 
 N = '\n'
 
-device = torch.device("cuda" if torch.cuda.is)
+
+
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(device)
 
 '''
  CLASSIFICATION: predicting a THING

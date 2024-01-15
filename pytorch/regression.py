@@ -9,6 +9,7 @@ from torch import optim
 
 N = '\n'  #newline character
 
+# git-py coding/NNPractice/pytorch/regression.py
 
 # IT WORKS
 #print(t.__version__)
