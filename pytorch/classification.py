@@ -7,6 +7,8 @@ from sklearn.datasets import make_circles
 
 N = '\n'
 
+device = torch.device("cuda" if torch.cuda.is)
+
 '''
  CLASSIFICATION: predicting a THING
 sdjfls

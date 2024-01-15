@@ -265,9 +265,9 @@ tensors do
 '''
 
 # EASY SOLUTION ON PC
-#print(torch.cuda.is_available())
 
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
+print(torch.cuda.is_available())
 
 tensor_on_cpu_for_now = torch.tensor([3,4,3])
 tensor_on_cpu_for_now.to(device) # transfer to device
